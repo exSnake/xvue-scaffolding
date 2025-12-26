@@ -7,37 +7,34 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="{{THEME_COLOR}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
-    <title>xScrabbler - Scrabble e Scarabeo calcolatore di punteggio online | Score tracker</title>
-    <meta name="title" content="xScrabbler - Scrabble e Scarabeo calcolatore di punteggio online | Score tracker">
-    <meta name="description" content="Porta conto e calcolatore di punteggio online per Scrabble e Scarabeo. Timer integrato, segna punti facilmente con bonus e gestione giocatori. Free Scrabble score keeper, tracker & timer for word games.">
-    <meta name="keywords" content="calcolatore scrabble, calcolatore scarabeo, calcolatore punteggio scrabble, calcolatore punteggio scarabeo, calcolatore scrabble online, calcolatore scarabeo online, scrabble score tracker online, scrabble segna punti, scrabble segna punti online, scarabeo segna punti, scarabeo segna punti online, porta conto scrabble, porta conti scrabble, porta conto scarabeo, porta conti scarabeo, porta punteggio scarabeo, porta punteggio scrabble, timer scrabble, timer scarabeo, punteggio scrabble, punteggio scarabeo, scrabble score keeper, scrabble score keeper online, scarabeo score keeper, scrabble scorecard, scrabble score tracker, scrabble points counter, scrabble timer online, word game score keeper, word game score keeper online, compteur scrabble, compteur points scrabble, compteur scarabeo, minuteur scrabble, contador scrabble, contador puntos scrabble, marcador scrabble, temporizador scrabble, scrabble punktezähler, scrabble punktezähler online, scrabble punktestand, scrabble scorebord, scrabble punten teller, contador pontos scrabble, placar scrabble, cronômetro scrabble, scrabble punktiarvestus, scrabble taimer, word games, board game, giochi di parole, jeux de mots, juegos de palabras, wortspiele">
-    <meta name="author" content="exSnake">
-    
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="google036f9250face9dbc">
-    
+    <title>{{APP_NAME}} - {{APP_DESCRIPTION}}</title>
+    <meta name="title" content="{{APP_NAME}} - {{APP_DESCRIPTION}}">
+    <meta name="description" content="{{APP_DESCRIPTION}}">
+    <meta name="keywords" content="vue, vue3, vite, web application, {{APP_NAME}}">
+    <meta name="author" content="{{AUTHOR_NAME}}">
+
+    <!-- Google Search Console Verification (replace with your own) -->
+    <!-- <meta name="google-site-verification" content="your_verification_code"> -->
+
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "xScrabbler - Calcolatore di punteggio per Scrabble e Scarabeo",
-        "alternateName": "xScrabbler Score Tracker",
-        "url": "https://scrabble.exsnake.com",
+        "name": "{{APP_NAME}}",
+        "url": "{{BASE_URL}}",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://scrabble.exsnake.com/logo/logo.svg",
+          "url": "{{BASE_URL}}/logo/logo.svg",
           "width": 512,
           "height": 512
         },
-        "image": "https://scrabble.exsnake.com/xscrabbler-preview.png",
-        "screenshot": "https://scrabble.exsnake.com/xscrabbler-preview.png",
-        "description": "Porta conto e calcolatore di punteggio online per Scrabble e Scarabeo. Timer integrato, segna punti facilmente con bonus e gestione giocatori. Free Scrabble score keeper, tracker & timer for word games.",
-        "applicationCategory": "GameApplication",
+        "description": "{{APP_DESCRIPTION}}",
+        "applicationCategory": "WebApplication",
         "operatingSystem": "Any",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
         "offers": {
@@ -45,66 +42,52 @@
           "price": "0",
           "priceCurrency": "EUR"
         },
-        "keywords": "calcolatore scrabble, calcolatore scarabeo, calcolatore punteggio scrabble, calcolatore punteggio scarabeo, calcolatore scrabble online, calcolatore scarabeo online, scrabble score tracker online, scrabble segna punti, scarabeo segna punti, porta conto scrabble, porta conti scrabble, porta conto scarabeo, porta conti scarabeo, porta punteggio scarabeo, porta punteggio scrabble, timer scrabble, timer scarabeo, punteggio scrabble, punteggio scarabeo, scrabble score keeper, scrabble score keeper online, scarabeo score keeper, scrabble scorecard, scrabble score tracker, word game score keeper online, compteur scrabble, compteur points scrabble, minuteur scrabble, contador scrabble, marcador scrabble, scrabble punktezähler online, scrabble scorebord, placar scrabble, cronômetro scrabble, word games, giochi di parole, jeux de mots, juegos de palabras, wortspiele",
         "author": {
           "@type": "Person",
-          "name": "exSnake"
+          "name": "{{AUTHOR_NAME}}"
         },
-        "inLanguage": ["it-IT", "en-US", "fr-FR", "es-ES", "de-DE", "nl-NL", "pt-PT", "et-EE"],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "150"
-        },
-        "featureList": [
-          "Score calculator for Scrabble and word games",
-          "Multiplayer support",
-          "Integrated timer",
-          "Word and letter bonuses",
-          "Multiple languages",
-          "Interactive board game mode"
-        ]
+        "inLanguage": ["it-IT", "en-US", "fr-FR", "es-ES", "de-DE", "nl-NL", "pt-PT", "et-EE"]
       }
     </script>
-    
+
     <!-- Language Alternates -->
-    <link rel="alternate" hreflang="en" href="https://scrabble.exsnake.com/en">
-    <link rel="alternate" hreflang="it" href="https://scrabble.exsnake.com/it">
-    <link rel="alternate" hreflang="fr" href="https://scrabble.exsnake.com/fr">
-    <link rel="alternate" hreflang="es" href="https://scrabble.exsnake.com/es">
-    <link rel="alternate" hreflang="de" href="https://scrabble.exsnake.com/de">
-    <link rel="alternate" hreflang="nl" href="https://scrabble.exsnake.com/nl">
-    <link rel="alternate" hreflang="pt" href="https://scrabble.exsnake.com/pt">
-    <link rel="alternate" hreflang="et" href="https://scrabble.exsnake.com/et">
-    <link rel="alternate" hreflang="x-default" href="https://scrabble.exsnake.com/">
-    
+    <link rel="alternate" hreflang="en" href="{{BASE_URL}}/en">
+    <link rel="alternate" hreflang="it" href="{{BASE_URL}}/it">
+    <link rel="alternate" hreflang="fr" href="{{BASE_URL}}/fr">
+    <link rel="alternate" hreflang="es" href="{{BASE_URL}}/es">
+    <link rel="alternate" hreflang="de" href="{{BASE_URL}}/de">
+    <link rel="alternate" hreflang="nl" href="{{BASE_URL}}/nl">
+    <link rel="alternate" hreflang="pt" href="{{BASE_URL}}/pt">
+    <link rel="alternate" hreflang="et" href="{{BASE_URL}}/et">
+    <link rel="alternate" hreflang="x-default" href="{{BASE_URL}}/">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://scrabble.exsnake.com/">
-    <meta property="og:title" content="xScrabbler - Scrabble e Scarabeo calcolatore di punteggio online | Score tracker">
-    <meta property="og:description" content="Porta conto e calcolatore di punteggio online per Scrabble e Scarabeo. Timer integrato, segna punti facilmente con bonus e gestione giocatori. Free Scrabble score keeper, tracker & timer for word games.">
-    <meta property="og:image" content="https://scrabble.exsnake.com/xscrabbler-preview.png">
+    <meta property="og:url" content="{{BASE_URL}}/">
+    <meta property="og:title" content="{{APP_NAME}} - {{APP_DESCRIPTION}}">
+    <meta property="og:description" content="{{APP_DESCRIPTION}}">
+    <meta property="og:image" content="{{BASE_URL}}/preview.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="xScrabbler - Score calculator for Scrabble and word games">
-    <meta property="og:site_name" content="xScrabbler">
-    <meta property="og:locale" content="it_IT">
-    
+    <meta property="og:image:alt" content="{{APP_NAME}}">
+    <meta property="og:site_name" content="{{APP_NAME}}">
+    <meta property="og:locale" content="en_US">
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://scrabble.exsnake.com/">
-    <meta name="twitter:title" content="xScrabbler - Scrabble e Scarabeo calcolatore di punteggio online">
-    <meta name="twitter:description" content="Porta conto e calcolatore di punteggio online per Scrabble e Scarabeo. Timer integrato, segna punti facilmente con bonus e gestione giocatori. Free Scrabble score keeper, tracker & timer for word games.">
-    <meta name="twitter:image" content="https://scrabble.exsnake.com/xscrabbler-preview.png">
-    <meta name="twitter:image:alt" content="xScrabbler - Score calculator for Scrabble and word games">
+    <meta name="twitter:url" content="{{BASE_URL}}/">
+    <meta name="twitter:title" content="{{APP_NAME}}">
+    <meta name="twitter:description" content="{{APP_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{BASE_URL}}/preview.png">
+    <meta name="twitter:image:alt" content="{{APP_NAME}}">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://scrabble.exsnake.com/">
-    
+    <link rel="canonical" href="{{BASE_URL}}/">
+
     <!-- Font preconnects for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
   </head>
   <body>
     <div id="app"></div>
