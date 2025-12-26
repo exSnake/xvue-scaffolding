@@ -1,7 +1,7 @@
 {
-  "name": "xScrabbler",
-  "short_name": "xScrabbler",
-  "description": "Score calculator for Scrabble and word games",
+  "name": "{{APP_NAME}}",
+  "short_name": "{{APP_NAME}}",
+  "description": "{{APP_DESCRIPTION}}",
   "icons": [
     {
       "src": "/logo/android-chrome-192x192.png",
@@ -14,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#2563EB",
+  "theme_color": "{{THEME_COLOR}}",
   "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/"

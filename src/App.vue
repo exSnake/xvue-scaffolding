@@ -3,9 +3,9 @@ import { RouterView, useRoute } from "vue-router";
 import { watch, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { Analytics } from "@vercel/analytics/vue";
-import NavBar from "@/components/NavBar.vue";
+import NavBar from "@/components/common/NavBar.vue";
 import CookieConsent from "@/components/CookieConsent.vue";
-import Footer from "@/components/Footer.vue";
+import Footer from "@/components/common/Footer.vue";
 import { useAnalytics } from "@/composables/useAnalytics";
 
 const { locale } = useI18n();
@@ -17,7 +17,7 @@ if (hasConsent()) {
   initGA();
 }
 
-// Ottieni la lingua corrente dalla route
+// Get current language from route
 const currentLang = computed(() => route.path.split("/")[1] || "en");
 
 // Sync vue-i18n locale with route language

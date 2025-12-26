@@ -1,918 +1,628 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { features } from "@/config/features";
 
 const supportedLanguages = ["en", "it", "fr", "es", "de", "nl", "et", "pt"];
 
-const baseUrl = "https://scrabble.exsnake.com";
-const ogImage = `${baseUrl}/xscrabbler-preview.png`;
+const baseUrl = import.meta.env.VITE_BASE_URL || "{{BASE_URL}}";
+const ogImage = `${baseUrl}/preview.png`;
+const appName = import.meta.env.VITE_APP_NAME || "{{APP_NAME}}";
+const appDescription =
+  import.meta.env.VITE_APP_DESCRIPTION || "{{APP_DESCRIPTION}}";
 
 const metaData = {
   home: {
     title: {
-      en: "xScrabbler - Score calculator for Scrabble and word games",
-      it: "xScrabbler - Calcolatore di punteggi per Scrabble e Scarabeo",
-      fr: "xScrabbler - Calculateur de score pour Scrabble et jeux de mots",
-      es: "xScrabbler - Calculadora de puntuación para Scrabble y juegos de palabras",
-      de: "xScrabbler - Punkterechner für Scrabble und Wortspiele",
-      nl: "xScrabbler - Scorecalculator voor Scrabble en woordspellen",
-      pt: "xScrabbler - Calculadora de pontuação para Scrabble e jogos de palavras",
-      et: "xScrabbler - Skoori arvuti Scrabble ja sõnamängude jaoks",
+      en: `${appName}`,
+      it: `${appName}`,
+      fr: `${appName}`,
+      es: `${appName}`,
+      de: `${appName}`,
+      nl: `${appName}`,
+      pt: `${appName}`,
+      et: `${appName}`,
     },
     metaTags: {
       en: [
         {
           name: "description",
-          content:
-            "Modern and intuitive score calculator for Scrabble, Scarabeo and similar word games. Manage scores, bonuses and timer in a single app.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content: "xScrabbler - Score calculator for Scrabble and word games",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Modern and intuitive score calculator for Scrabble, Scarabeo and similar word games. Manage scores, bonuses and timer in a single app.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "en_US" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content: "xScrabbler - Score calculator for Scrabble and word games",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Modern and intuitive score calculator for Scrabble, Scarabeo and similar word games.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       it: [
         {
           name: "description",
-          content:
-            "Calcolatore di punteggi moderno e intuitivo per Scrabble, Scarabeo e giochi di parole simili. Gestisci punteggi, bonus e timer in un'unica app.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content:
-            "xScrabbler - Calcolatore di punteggi per Scrabble e Scarabeo",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Calcolatore di punteggi moderno e intuitivo per Scrabble, Scarabeo e giochi di parole simili. Gestisci punteggi, bonus e timer in un'unica app.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "it_IT" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content:
-            "xScrabbler - Calcolatore di punteggi per Scrabble e Scarabeo",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Calcolatore di punteggi moderno e intuitivo per Scrabble, Scarabeo e giochi di parole simili.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       fr: [
         {
           name: "description",
-          content:
-            "Calculateur de score moderne et intuitif pour Scrabble, Scarabeo et jeux de mots similaires. Gérez les scores, bonus et minuteur dans une seule application.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content:
-            "xScrabbler - Calculateur de score pour Scrabble et jeux de mots",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Calculateur de score moderne et intuitif pour Scrabble, Scarabeo et jeux de mots similaires. Gérez les scores, bonus et minuteur dans une seule application.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "fr_FR" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content:
-            "xScrabbler - Calculateur de score pour Scrabble et jeux de mots",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Calculateur de score moderne et intuitif pour Scrabble, Scarabeo et jeux de mots similaires.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       es: [
         {
           name: "description",
-          content:
-            "Calculadora de puntuación moderna e intuitiva para Scrabble, Scarabeo y juegos de palabras similares. Gestiona puntuaciones, bonos y temporizador en una sola aplicación.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content:
-            "xScrabbler - Calculadora de puntuación para Scrabble y juegos de palabras",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Calculadora de puntuación moderna e intuitiva para Scrabble, Scarabeo y juegos de palabras similares. Gestiona puntuaciones, bonos y temporizador en una sola aplicación.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "es_ES" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content:
-            "xScrabbler - Calculadora de puntuación para Scrabble y juegos de palabras",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Calculadora de puntuación moderna e intuitiva para Scrabble, Scarabeo y juegos de palabras similares.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       de: [
         {
           name: "description",
-          content:
-            "Moderner und intuitiver Punkterechner für Scrabble, Scarabeo und ähnliche Wortspiele. Verwalten Sie Punkte, Boni und Timer in einer einzigen App.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content: "xScrabbler - Punkterechner für Scrabble und Wortspiele",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Moderner und intuitiver Punkterechner für Scrabble, Scarabeo und ähnliche Wortspiele. Verwalten Sie Punkte, Boni und Timer in einer einzigen App.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "de_DE" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content: "xScrabbler - Punkterechner für Scrabble und Wortspiele",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Moderner und intuitiver Punkterechner für Scrabble, Scarabeo und ähnliche Wortspiele.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       nl: [
         {
           name: "description",
-          content:
-            "Moderne en intuïtieve scorecalculator voor Scrabble, Scarabeo en vergelijkbare woordspellen. Beheer scores, bonussen en timer in één app.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content: "xScrabbler - Scorecalculator voor Scrabble en woordspellen",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Moderne en intuïtieve scorecalculator voor Scrabble, Scarabeo en vergelijkbare woordspellen. Beheer scores, bonussen en timer in één app.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "nl_NL" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content: "xScrabbler - Scorecalculator voor Scrabble en woordspellen",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Moderne en intuïtieve scorecalculator voor Scrabble, Scarabeo en vergelijkbare woordspellen.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       pt: [
         {
           name: "description",
-          content:
-            "Calculadora de pontuação moderna e intuitiva para Scrabble, Scarabeo e jogos de palavras similares. Gerencie pontuações, bônus e temporizador em um único aplicativo.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content:
-            "xScrabbler - Calculadora de pontuação para Scrabble e jogos de palavras",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Calculadora de pontuação moderna e intuitiva para Scrabble, Scarabeo e jogos de palavras similares. Gerencie pontuações, bônus e temporizador em um único aplicativo.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "pt_PT" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content:
-            "xScrabbler - Calculadora de pontuação para Scrabble e jogos de palavras",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Calculadora de pontuação moderna e intuitiva para Scrabble, Scarabeo e jogos de palavras similares.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
       et: [
         {
           name: "description",
-          content:
-            "Kaasaegne ja intuitiivne skoori arvuti Scrabble, Scarabeo ja sarnaste sõnamängude jaoks. Hallake skoore, boonuseid ja taimerit ühes rakenduses.",
+          content: appDescription,
         },
         {
           property: "og:title",
-          content: "xScrabbler - Skoori arvuti Scrabble ja sõnamängude jaoks",
+          content: appName,
         },
         {
           property: "og:description",
-          content:
-            "Kaasaegne ja intuitiivne skoori arvuti Scrabble, Scarabeo ja sarnaste sõnamängude jaoks. Hallake skoore, boonuseid ja taimerit ühes rakenduses.",
+          content: appDescription,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "et_EE" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content: "xScrabbler - Skoori arvuti Scrabble ja sõnamängude jaoks",
+          content: appName,
         },
         {
           name: "twitter:description",
-          content:
-            "Kaasaegne ja intuitiivne skoori arvuti Scrabble, Scarabeo ja sarnaste sõnamängude jaoks.",
+          content: appDescription,
         },
         { name: "twitter:image", content: ogImage },
       ],
     },
   },
-  scorer: {
+  about: {
     title: {
-      en: "Scorer - xScrabbler",
-      it: "Calcolatore - xScrabbler",
-      fr: "Calculateur - xScrabbler",
-      es: "Calculadora - xScrabbler",
-      de: "Punktesteller - xScrabbler",
-      nl: "Scorecalculator - xScrabbler",
-      pt: "Calculadora - xScrabbler",
-      et: "Skoorimine - xScrabbler",
+      en: `About - ${appName}`,
+      it: `Chi Siamo - ${appName}`,
+      fr: `À Propos - ${appName}`,
+      es: `Acerca de - ${appName}`,
+      de: `Über Uns - ${appName}`,
+      nl: `Over Ons - ${appName}`,
+      pt: `Sobre - ${appName}`,
+      et: `Meist - ${appName}`,
     },
     metaTags: {
       en: [
         {
           name: "description",
-          content:
-            "Easily calculate scores for your Scrabble and word games with integrated timer and support for multiple players.",
+          content: `Learn more about ${appName} and our mission.`,
         },
-        { property: "og:title", content: "Scorer - xScrabbler" },
+        { property: "og:title", content: `About - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Easily calculate scores for your Scrabble and word games with integrated timer and support for multiple players.",
+          content: `Learn more about ${appName} and our mission.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "en_US" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Scorer - xScrabbler" },
+        { name: "twitter:title", content: `About - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Easily calculate scores for your Scrabble and word games with integrated timer and support for multiple players.",
+          content: `Learn more about ${appName} and our mission.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       it: [
         {
           name: "description",
-          content:
-            "Calcola facilmente i punteggi delle tue partite di Scrabble e Scarabeo con timer integrato e supporto per più giocatori.",
+          content: `Scopri di più su ${appName} e la nostra missione.`,
         },
-        { property: "og:title", content: "Calcolatore - xScrabbler" },
+        { property: "og:title", content: `Chi Siamo - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Calcola facilmente i punteggi delle tue partite di Scrabble e Scarabeo con timer integrato e supporto per più giocatori.",
+          content: `Scopri di più su ${appName} e la nostra missione.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "it_IT" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Calcolatore - xScrabbler" },
+        { name: "twitter:title", content: `Chi Siamo - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Calcola facilmente i punteggi delle tue partite di Scrabble e Scarabeo con timer integrato e supporto per più giocatori.",
+          content: `Scopri di più su ${appName} e la nostra missione.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       fr: [
         {
           name: "description",
-          content:
-            "Calculez facilement les scores de vos parties de Scrabble et jeux de mots avec minuteur intégré et support pour plusieurs joueurs.",
+          content: `En savoir plus sur ${appName} et notre mission.`,
         },
-        { property: "og:title", content: "Calculateur - xScrabbler" },
+        { property: "og:title", content: `À Propos - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Calculez facilement les scores de vos parties de Scrabble et jeux de mots avec minuteur intégré et support pour plusieurs joueurs.",
+          content: `En savoir plus sur ${appName} et notre mission.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "fr_FR" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Calculateur - xScrabbler" },
+        { name: "twitter:title", content: `À Propos - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Calculez facilement les scores de vos parties de Scrabble et jeux de mots avec minuteur intégré et support pour plusieurs joueurs.",
+          content: `En savoir plus sur ${appName} et notre mission.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       es: [
         {
           name: "description",
-          content:
-            "Calcula fácilmente las puntuaciones de tus partidas de Scrabble y juegos de palabras con temporizador integrado y soporte para múltiples jugadores.",
+          content: `Más información sobre ${appName} y nuestra misión.`,
         },
-        { property: "og:title", content: "Calculadora - xScrabbler" },
+        { property: "og:title", content: `Acerca de - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Calcula fácilmente las puntuaciones de tus partidas de Scrabble y juegos de palabras con temporizador integrado y soporte para múltiples jugadores.",
+          content: `Más información sobre ${appName} y nuestra misión.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "es_ES" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Calculadora - xScrabbler" },
+        { name: "twitter:title", content: `Acerca de - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Calcula fácilmente las puntuaciones de tus partidas de Scrabble y juegos de palabras con temporizador integrado y soporte para múltiples jugadores.",
+          content: `Más información sobre ${appName} y nuestra misión.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       de: [
         {
           name: "description",
-          content:
-            "Berechnen Sie einfach die Punkte für Ihre Scrabble- und Wortspiele mit integriertem Timer und Unterstützung für mehrere Spieler.",
+          content: `Erfahren Sie mehr über ${appName} und unsere Mission.`,
         },
-        { property: "og:title", content: "Punktesteller - xScrabbler" },
+        { property: "og:title", content: `Über Uns - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Berechnen Sie einfach die Punkte für Ihre Scrabble- und Wortspiele mit integriertem Timer und Unterstützung für mehrere Spieler.",
+          content: `Erfahren Sie mehr über ${appName} und unsere Mission.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "de_DE" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Punktesteller - xScrabbler" },
+        { name: "twitter:title", content: `Über Uns - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Berechnen Sie einfach die Punkte für Ihre Scrabble- und Wortspiele mit integriertem Timer und Unterstützung für mehrere Spieler.",
+          content: `Erfahren Sie mehr über ${appName} und unsere Mission.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       nl: [
         {
           name: "description",
-          content:
-            "Bereken eenvoudig scores voor uw Scrabble- en woordspellen met geïntegreerde timer en ondersteuning voor meerdere spelers.",
+          content: `Meer informatie over ${appName} en onze missie.`,
         },
-        { property: "og:title", content: "Scorecalculator - xScrabbler" },
+        { property: "og:title", content: `Over Ons - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Bereken eenvoudig scores voor uw Scrabble- en woordspellen met geïntegreerde timer en ondersteuning voor meerdere spelers.",
+          content: `Meer informatie over ${appName} en onze missie.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "nl_NL" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Scorecalculator - xScrabbler" },
+        { name: "twitter:title", content: `Over Ons - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Bereken eenvoudig scores voor uw Scrabble- en woordspellen met geïntegreerde timer en ondersteuning voor meerdere spelers.",
+          content: `Meer informatie over ${appName} en onze missie.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       pt: [
         {
           name: "description",
-          content:
-            "Calcule facilmente as pontuações dos seus jogos de Scrabble e jogos de palavras com temporizador integrado e suporte para vários jogadores.",
+          content: `Saiba mais sobre ${appName} e nossa missão.`,
         },
-        { property: "og:title", content: "Calculadora - xScrabbler" },
+        { property: "og:title", content: `Sobre - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Calcule facilmente as pontuações dos seus jogos de Scrabble e jogos de palavras com temporizador integrado e suporte para vários jogadores.",
+          content: `Saiba mais sobre ${appName} e nossa missão.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "pt_PT" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Calculadora - xScrabbler" },
+        { name: "twitter:title", content: `Sobre - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Calcule facilmente as pontuações dos seus jogos de Scrabble e jogos de palavras com temporizador integrado e suporte para vários jogadores.",
+          content: `Saiba mais sobre ${appName} e nossa missão.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       et: [
         {
           name: "description",
-          content:
-            "Arvutage hõlpsalt oma Scrabble ja sõnamängude tulemusi koos integreeritud taimeriga ja mitme mängija toega.",
+          content: `Lisateave ${appName} ja meie missiooni kohta.`,
         },
-        { property: "og:title", content: "Skoorimine - xScrabbler" },
+        { property: "og:title", content: `Meist - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Arvutage hõlpsalt oma Scrabble ja sõnamängude tulemusi koos integreeritud taimeriga ja mitme mängija toega.",
+          content: `Lisateave ${appName} ja meie missiooni kohta.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "et_EE" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Skoorimine - xScrabbler" },
+        { name: "twitter:title", content: `Meist - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Arvutage hõlpsalt oma Scrabble ja sõnamängude tulemusi koos integreeritud taimeriga ja mitme mängija toega.",
+          content: `Lisateave ${appName} ja meie missiooni kohta.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
     },
   },
-  settings: {
+  contact: {
     title: {
-      en: "Settings - xScrabbler",
-      it: "Impostazioni - xScrabbler",
-      fr: "Paramètres - xScrabbler",
-      es: "Configuración - xScrabbler",
-      de: "Einstellungen - xScrabbler",
-      nl: "Instellingen - xScrabbler",
-      pt: "Configurações - xScrabbler",
-      et: "Seaded - xScrabbler",
+      en: `Contact - ${appName}`,
+      it: `Contatti - ${appName}`,
+      fr: `Contact - ${appName}`,
+      es: `Contacto - ${appName}`,
+      de: `Kontakt - ${appName}`,
+      nl: `Contact - ${appName}`,
+      pt: `Contato - ${appName}`,
+      et: `Kontakt - ${appName}`,
     },
     metaTags: {
       en: [
         {
           name: "description",
-          content:
-            "Customize your Scrabble score calculator with various languages, themes and game options.",
+          content: `Get in touch with ${appName}. We'd love to hear from you.`,
         },
-        { property: "og:title", content: "Settings - xScrabbler" },
+        { property: "og:title", content: `Contact - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Customize your Scrabble score calculator with various languages, themes and game options.",
+          content: `Get in touch with ${appName}. We'd love to hear from you.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "en_US" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Settings - xScrabbler" },
+        { name: "twitter:title", content: `Contact - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Customize your Scrabble score calculator with various languages, themes and game options.",
+          content: `Get in touch with ${appName}. We'd love to hear from you.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       it: [
         {
           name: "description",
-          content:
-            "Personalizza il tuo calcolatore di punteggi per Scrabble e Scarabeo con varie lingue, temi e opzioni di gioco.",
+          content: `Contatta ${appName}. Ci piacerebbe sentirti.`,
         },
-        { property: "og:title", content: "Impostazioni - xScrabbler" },
+        { property: "og:title", content: `Contatti - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Personalizza il tuo calcolatore di punteggi per Scrabble e Scarabeo con varie lingue, temi e opzioni di gioco.",
+          content: `Contatta ${appName}. Ci piacerebbe sentirti.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "it_IT" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Impostazioni - xScrabbler" },
+        { name: "twitter:title", content: `Contatti - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Personalizza il tuo calcolatore di punteggi per Scrabble e Scarabeo con varie lingue, temi e opzioni di gioco.",
+          content: `Contatta ${appName}. Ci piacerebbe sentirti.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       fr: [
         {
           name: "description",
-          content:
-            "Personnalisez votre calculateur de score Scrabble avec différentes langues, thèmes et options de jeu.",
+          content: `Contactez ${appName}. Nous serions ravis de vous entendre.`,
         },
-        { property: "og:title", content: "Paramètres - xScrabbler" },
+        { property: "og:title", content: `Contact - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Personnalisez votre calculateur de score Scrabble avec différentes langues, thèmes et options de jeu.",
+          content: `Contactez ${appName}. Nous serions ravis de vous entendre.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "fr_FR" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Paramètres - xScrabbler" },
+        { name: "twitter:title", content: `Contact - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Personnalisez votre calculateur de score Scrabble avec différentes langues, thèmes et options de jeu.",
+          content: `Contactez ${appName}. Nous serions ravis de vous entendre.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       es: [
         {
           name: "description",
-          content:
-            "Personaliza tu calculadora de puntuación Scrabble con varios idiomas, temas y opciones de juego.",
+          content: `Póngase en contacto con ${appName}. Nos encantaría saber de usted.`,
         },
-        { property: "og:title", content: "Configuración - xScrabbler" },
+        { property: "og:title", content: `Contacto - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Personaliza tu calculadora de puntuación Scrabble con varios idiomas, temas y opciones de juego.",
+          content: `Póngase en contacto con ${appName}. Nos encantaría saber de usted.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "es_ES" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Configuración - xScrabbler" },
+        { name: "twitter:title", content: `Contacto - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Personaliza tu calculadora de puntuación Scrabble con varios idiomas, temas y opciones de juego.",
+          content: `Póngase en contacto con ${appName}. Nos encantaría saber de usted.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       de: [
         {
           name: "description",
-          content:
-            "Passen Sie Ihren Scrabble-Punkterechner mit verschiedenen Sprachen, Themen und Spieloptionen an.",
+          content: `Kontaktieren Sie ${appName}. Wir würden uns freuen, von Ihnen zu hören.`,
         },
-        { property: "og:title", content: "Einstellungen - xScrabbler" },
+        { property: "og:title", content: `Kontakt - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Passen Sie Ihren Scrabble-Punkterechner mit verschiedenen Sprachen, Themen und Spieloptionen an.",
+          content: `Kontaktieren Sie ${appName}. Wir würden uns freuen, von Ihnen zu hören.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "de_DE" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Einstellungen - xScrabbler" },
+        { name: "twitter:title", content: `Kontakt - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Passen Sie Ihren Scrabble-Punkterechner mit verschiedenen Sprachen, Themen und Spieloptionen an.",
+          content: `Kontaktieren Sie ${appName}. Wir würden uns freuen, von Ihnen zu hören.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       nl: [
         {
           name: "description",
-          content:
-            "Pas uw Scrabble-scorecalculator aan met verschillende talen, thema's en spelopties.",
+          content: `Neem contact op met ${appName}. We horen graag van u.`,
         },
-        { property: "og:title", content: "Instellingen - xScrabbler" },
+        { property: "og:title", content: `Contact - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Pas uw Scrabble-scorecalculator aan met verschillende talen, thema's en spelopties.",
+          content: `Neem contact op met ${appName}. We horen graag van u.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "nl_NL" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Instellingen - xScrabbler" },
+        { name: "twitter:title", content: `Contact - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Pas uw Scrabble-scorecalculator aan met verschillende talen, thema's en spelopties.",
+          content: `Neem contact op met ${appName}. We horen graag van u.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       pt: [
         {
           name: "description",
-          content:
-            "Personalize sua calculadora de pontuação Scrabble com vários idiomas, temas e opções de jogo.",
+          content: `Entre em contato com ${appName}. Adoraríamos ouvir de você.`,
         },
-        { property: "og:title", content: "Configurações - xScrabbler" },
+        { property: "og:title", content: `Contato - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Personalize sua calculadora de pontuação Scrabble com vários idiomas, temas e opções de jogo.",
+          content: `Entre em contato com ${appName}. Adoraríamos ouvir de você.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "pt_PT" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Configurações - xScrabbler" },
+        { name: "twitter:title", content: `Contato - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Personalize sua calculadora de pontuação Scrabble com vários idiomas, temas e opções de jogo.",
+          content: `Entre em contato com ${appName}. Adoraríamos ouvir de você.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
       et: [
         {
           name: "description",
-          content:
-            "Kohandage oma Scrabble skoori arvutit erinevate keelte, teemade ja mänguvalikutega.",
+          content: `Võtke ühendust ${appName}. Tahaksime teilt kuulda.`,
         },
-        { property: "og:title", content: "Seaded - xScrabbler" },
+        { property: "og:title", content: `Kontakt - ${appName}` },
         {
           property: "og:description",
-          content:
-            "Kohandage oma Scrabble skoori arvutit erinevate keelte, teemade ja mänguvalikutega.",
+          content: `Võtke ühendust ${appName}. Tahaksime teilt kuulda.`,
         },
         { property: "og:type", content: "website" },
         { property: "og:image", content: ogImage },
         { property: "og:locale", content: "et_EE" },
-        { property: "og:site_name", content: "xScrabbler" },
+        { property: "og:site_name", content: appName },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Seaded - xScrabbler" },
+        { name: "twitter:title", content: `Kontakt - ${appName}` },
         {
           name: "twitter:description",
-          content:
-            "Kohandage oma Scrabble skoori arvutit erinevate keelte, teemade ja mänguvalikutega.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-    },
-  },
-  board: {
-    title: {
-      en: "Board Game - xScrabbler",
-      it: "Tabellone - xScrabbler",
-      fr: "Jeu de Plateau - xScrabbler",
-      es: "Juego de Mesa - xScrabbler",
-      de: "Brettspiel - xScrabbler",
-      nl: "Bordspel - xScrabbler",
-      pt: "Jogo de Tabuleiro - xScrabbler",
-      et: "Lauamäng - xScrabbler",
-    },
-    metaTags: {
-      en: [
-        {
-          name: "description",
-          content:
-            "Play Scrabble on an interactive board with multiplayer support, timer and automatic scoring.",
-        },
-        { property: "og:title", content: "Board Game - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Play Scrabble on an interactive board with multiplayer support, timer and automatic scoring.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "en_US" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Board Game - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Play Scrabble on an interactive board with multiplayer support, timer and automatic scoring.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      it: [
-        {
-          name: "description",
-          content:
-            "Gioca a Scrabble su una tavola interattiva con supporto multigiocatore, timer e punteggio automatico.",
-        },
-        { property: "og:title", content: "Tavolo di Gioco - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Gioca a Scrabble su una tavola interattiva con supporto multigiocatore, timer e punteggio automatico.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "it_IT" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Tavolo di Gioco - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Gioca a Scrabble su una tavola interattiva con supporto multigiocatore, timer e punteggio automatico.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      fr: [
-        {
-          name: "description",
-          content:
-            "Jouez au Scrabble sur un plateau interactif avec support multijoueur, minuteur et score automatique.",
-        },
-        { property: "og:title", content: "Jeu de Plateau - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Jouez au Scrabble sur un plateau interactif avec support multijoueur, minuteur et score automatique.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "fr_FR" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Jeu de Plateau - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Jouez au Scrabble sur un plateau interactif avec support multijoueur, minuteur et score automatique.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      es: [
-        {
-          name: "description",
-          content:
-            "Juega Scrabble en un tablero interactivo con soporte multijugador, temporizador y puntuación automática.",
-        },
-        { property: "og:title", content: "Juego de Mesa - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Juega Scrabble en un tablero interactivo con soporte multijugador, temporizador y puntuación automática.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "es_ES" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Juego de Mesa - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Juega Scrabble en un tablero interactivo con soporte multijugador, temporizador y puntuación automática.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      de: [
-        {
-          name: "description",
-          content:
-            "Spielen Sie Scrabble auf einem interaktiven Brett mit Multiplayer-Unterstützung, Timer und automatischer Punktevergabe.",
-        },
-        { property: "og:title", content: "Brettspiel - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Spielen Sie Scrabble auf einem interaktiven Brett mit Multiplayer-Unterstützung, Timer und automatischer Punktevergabe.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "de_DE" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Brettspiel - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Spielen Sie Scrabble auf einem interaktiven Brett mit Multiplayer-Unterstützung, Timer und automatischer Punktevergabe.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      nl: [
-        {
-          name: "description",
-          content:
-            "Speel Scrabble op een interactief bord met multiplayer-ondersteuning, timer en automatische scoring.",
-        },
-        { property: "og:title", content: "Bordspel - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Speel Scrabble op een interactief bord met multiplayer-ondersteuning, timer en automatische scoring.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "nl_NL" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Bordspel - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Speel Scrabble op een interactief bord met multiplayer-ondersteuning, timer en automatische scoring.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      pt: [
-        {
-          name: "description",
-          content:
-            "Jogue Scrabble em um tabuleiro interativo com suporte multijogador, temporizador e pontuação automática.",
-        },
-        { property: "og:title", content: "Jogo de Tabuleiro - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Jogue Scrabble em um tabuleiro interativo com suporte multijogador, temporizador e pontuação automática.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "pt_PT" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Jogo de Tabuleiro - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Jogue Scrabble em um tabuleiro interativo com suporte multijogador, temporizador e pontuação automática.",
-        },
-        { name: "twitter:image", content: ogImage },
-      ],
-      et: [
-        {
-          name: "description",
-          content:
-            "Mängige Scrabble interaktiivsel laual mitme mängija toega, taimeriga ja automaatse punktiarvestusega.",
-        },
-        { property: "og:title", content: "Lauamäng - xScrabbler" },
-        {
-          property: "og:description",
-          content:
-            "Mängige Scrabble interaktiivsel laual mitme mängija toega, taimeriga ja automaatse punktiarvestusega.",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:image", content: ogImage },
-        { property: "og:locale", content: "et_EE" },
-        { property: "og:site_name", content: "xScrabbler" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Lauamäng - xScrabbler" },
-        {
-          name: "twitter:description",
-          content:
-            "Mängige Scrabble interaktiivsel laual mitme mängija toega, taimeriga ja automaatse punktiarvestusega.",
+          content: `Võtke ühendust ${appName}. Tahaksime teilt kuulda.`,
         },
         { name: "twitter:image", content: ogImage },
       ],
@@ -922,6 +632,7 @@ const metaData = {
 
 let routes = [];
 
+// Root redirect to browser language
 routes.push({
   path: "/",
   redirect: () => {
@@ -933,6 +644,7 @@ routes.push({
   },
 });
 
+// Generate routes for all supported languages
 supportedLanguages.forEach((lang) => {
   const langRoutes = [
     {
@@ -945,39 +657,37 @@ supportedLanguages.forEach((lang) => {
       },
     },
     {
-      path: `/${lang}/scorer`,
-      name: `scorer-${lang}`,
-      component: () => import("../views/ScorerView.vue"),
+      path: `/${lang}/about`,
+      name: `about-${lang}`,
+      component: () => import("../views/AboutView.vue"),
       meta: {
-        ...metaData.scorer,
-        lang,
-      },
-    },
-    {
-      path: `/${lang}/settings`,
-      name: `settings-${lang}`,
-      component: () => import("../views/SettingsView.vue"),
-      meta: {
-        ...metaData.settings,
-        lang,
-      },
-    },
-    {
-      path: `/${lang}/board`,
-      name: `board-${lang}`,
-      component: () => import("../views/BoardView.vue"),
-      meta: {
-        ...metaData.board,
+        ...metaData.about,
         lang,
       },
     },
   ];
+
+  // Conditionally add contact route if feature is enabled
+  if (features.contactForm) {
+    langRoutes.push({
+      path: `/${lang}/contact`,
+      name: `contact-${lang}`,
+      component: () => import("../views/ContactView.vue"),
+      meta: {
+        ...metaData.contact,
+        lang,
+      },
+    });
+  }
+
   routes.push(...langRoutes);
 });
 
+// 404 catch-all route
 routes.push({
   path: "/:pathMatch(.*)*",
-  redirect: "/en",
+  name: "notfound",
+  component: () => import("../views/NotFoundView.vue"),
 });
 
 const router = createRouter({
@@ -990,7 +700,7 @@ router.beforeEach((to, from, next) => {
   // Get current language from route meta or fallback
   const currentLang = to.meta.lang || "en";
 
-  let title = "xScrabbler";
+  let title = appName;
   if (to.meta.title) {
     if (typeof to.meta.title === "object") {
       title = to.meta.title[currentLang] || to.meta.title.en || title;
@@ -1066,10 +776,10 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-// Log quando cambia la route
+// Log route changes
 router.afterEach((to, from) => {
   console.log(
-    `[Router] Navigazione da "${from.name || from.path}" a "${
+    `[Router] Navigation from "${from.name || from.path}" to "${
       to.name || to.path
     }"`,
   );
