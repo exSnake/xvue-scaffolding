@@ -32,11 +32,11 @@ export function useAnalytics() {
     document.head.appendChild(script);
 
     // Initialize gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
+    globalThis.dataLayer = globalThis.dataLayer || [];
+    function gtag(...args) {
+      globalThis.dataLayer.push(args);
     }
-    window.gtag = gtag;
+    globalThis.gtag = gtag;
 
     gtag("js", new Date());
     gtag("config", GA_MEASUREMENT_ID, {
@@ -54,9 +54,9 @@ export function useAnalytics() {
    * @param {string} pageTitle - The page title
    */
   const trackPageView = (pagePath, pageTitle) => {
-    if (!isInitialized.value || !window.gtag) return;
+    if (!isInitialized.value || !globalThis.gtag) return;
 
-    window.gtag("config", GA_MEASUREMENT_ID, {
+    globalThis.gtag("config", GA_MEASUREMENT_ID, {
       page_path: pagePath,
       page_title: pageTitle,
     });
@@ -72,9 +72,9 @@ export function useAnalytics() {
    * trackEvent('form_submit', { form_id: 'contact_form' })
    */
   const trackEvent = (eventName, eventParams = {}) => {
-    if (!isInitialized.value || !window.gtag) return;
+    if (!isInitialized.value || !globalThis.gtag) return;
 
-    window.gtag("event", eventName, eventParams);
+    globalThis.gtag("event", eventName, eventParams);
   };
 
   return {

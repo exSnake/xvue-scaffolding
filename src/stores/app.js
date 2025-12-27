@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { useStorage } from '@vueuse/core'
+import { defineStore } from "pinia";
+import { ref, computed } from "vue";
+import { useStorage } from "@vueuse/core";
 
 /**
  * Main application store
@@ -10,60 +10,60 @@ import { useStorage } from '@vueuse/core'
  * - Computed properties
  * - Actions for state mutations
  */
-export const useAppStore = defineStore('app', () => {
+export const useAppStore = defineStore("app", () => {
   // State: Theme preference
-  const theme = useStorage('theme', 'system', localStorage, {
+  const theme = useStorage("theme", "system", localStorage, {
     serializer: {
-      read: (v) => (v ? v : 'system'),
+      read: (v) => v || "system",
       write: (v) => v,
     },
-  })
+  });
 
   // State: User preferences (persisted to localStorage)
   const preferences = useStorage(
-    'app-preferences',
+    "app-preferences",
     {
       notifications: true,
       analytics: true,
-      language: 'en',
+      language: "en",
     },
     localStorage,
     {
       deep: true,
-    }
-  )
+    },
+  );
 
   // State: UI state (not persisted)
-  const sidebarOpen = ref(false)
+  const sidebarOpen = ref(false);
 
   // Computed: Check if dark mode is active
-  const isDarkMode = computed(() => theme.value === 'dark')
+  const isDarkMode = computed(() => theme.value === "dark");
 
   // Actions
   function toggleTheme() {
-    if (theme.value === 'dark') {
-      theme.value = 'light'
-    } else if (theme.value === 'light') {
-      theme.value = 'system'
+    if (theme.value === "dark") {
+      theme.value = "light";
+    } else if (theme.value === "light") {
+      theme.value = "system";
     } else {
-      theme.value = 'dark'
+      theme.value = "dark";
     }
   }
 
   function setTheme(newTheme) {
-    if (['light', 'dark', 'system'].includes(newTheme)) {
-      theme.value = newTheme
+    if (["light", "dark", "system"].includes(newTheme)) {
+      theme.value = newTheme;
     }
   }
 
   function updatePreference(key, value) {
     if (key in preferences.value) {
-      preferences.value[key] = value
+      preferences.value[key] = value;
     }
   }
 
   function toggleSidebar() {
-    sidebarOpen.value = !sidebarOpen.value
+    sidebarOpen.value = !sidebarOpen.value;
   }
 
   return {
@@ -80,5 +80,5 @@ export const useAppStore = defineStore('app', () => {
     setTheme,
     updatePreference,
     toggleSidebar,
-  }
-})
+  };
+});

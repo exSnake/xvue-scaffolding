@@ -10,14 +10,14 @@ export const features = {
    * Google Analytics tracking
    * Set VITE_ENABLE_ANALYTICS=true to enable
    */
-  analytics: import.meta.env.VITE_ENABLE_ANALYTICS === 'true',
+  analytics: import.meta.env.VITE_ENABLE_ANALYTICS === "true",
 
   /**
    * Contact form with AWS SES integration
    * Set VITE_ENABLE_CONTACT_FORM=true to enable
    */
-  contactForm: import.meta.env.VITE_ENABLE_CONTACT_FORM === 'true',
-}
+  contactForm: import.meta.env.VITE_ENABLE_CONTACT_FORM === "true",
+};
 
 /**
  * Helper function to check if a feature is enabled
@@ -25,5 +25,5 @@ export const features = {
  * @returns {boolean} - Whether the feature is enabled
  */
 export const isFeatureEnabled = (name) => {
-  return features[name] ?? false
-}
+  return features[name] ?? false;
+};

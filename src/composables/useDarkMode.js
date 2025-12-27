@@ -1,4 +1,4 @@
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark, useToggle } from "@vueuse/core";
 
 /**
  * Composable for managing dark mode
@@ -12,17 +12,17 @@ import { useDark, useToggle } from '@vueuse/core'
  */
 export function useDarkMode() {
   const isDark = useDark({
-    selector: 'html',
-    attribute: 'class',
-    valueDark: 'dark',
-    valueLight: '',
-    storageKey: 'vueuse-color-scheme',
-  })
+    selector: "html",
+    attribute: "class",
+    valueDark: "dark",
+    valueLight: "",
+    storageKey: "vueuse-color-scheme",
+  });
 
-  const toggleDark = useToggle(isDark)
+  const toggleDark = useToggle(isDark);
 
   return {
     isDark,
     toggleDark,
-  }
+  };
 }

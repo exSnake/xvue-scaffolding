@@ -146,7 +146,7 @@ onBeforeUnmount(() => {
           <span
             class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white tracking-tight"
           >
-            {{ $t('app.title') }}
+            {{ $t("app.title") }}
           </span>
         </RouterLink>
 
@@ -162,39 +162,6 @@ onBeforeUnmount(() => {
             role="menuitem"
           >
             {{ t("nav.home") }}
-          </RouterLink>
-          <RouterLink
-            :to="localePath('scorer')"
-            class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-            :class="{
-              'bg-gray-100 dark:bg-gray-800 text-rose-600 dark:text-rose-400':
-                isActive('scorer'),
-            }"
-            role="menuitem"
-          >
-            {{ t("nav.scorer") }}
-          </RouterLink>
-          <RouterLink
-            :to="localePath('board')"
-            class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-            :class="{
-              'bg-gray-100 dark:bg-gray-800 text-rose-600 dark:text-rose-400':
-                isActive('board'),
-            }"
-            role="menuitem"
-          >
-            {{ t("nav.boardGame") }}
-          </RouterLink>
-          <RouterLink
-            :to="localePath('settings')"
-            class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-            :class="{
-              'bg-gray-100 dark:bg-gray-800 text-rose-600 dark:text-rose-400':
-                isActive('settings'),
-            }"
-            role="menuitem"
-          >
-            {{ t("nav.settings") }}
           </RouterLink>
         </div>
 
