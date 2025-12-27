@@ -4,7 +4,7 @@ import { watch, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { Analytics } from "@vercel/analytics/vue";
 import NavBar from "@/components/common/NavBar.vue";
-import CookieConsent from "@/components/CookieConsent.vue";
+import CookieConsent from "@/components/common/CookieConsent.vue";
 import Footer from "@/components/common/Footer.vue";
 import { useAnalytics } from "@/composables/useAnalytics";
 

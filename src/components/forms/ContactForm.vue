@@ -2,14 +2,14 @@
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import {
-  LucideSend,
-  LucideUser,
-  LucideMail,
-  LucideMessageSquare,
-  LucideCheck,
-  LucideAlertCircle,
-  LucideLoader2,
-} from "./icons/index.js";
+  Send as LucideSend,
+  User as LucideUser,
+  Mail as LucideMail,
+  MessageSquare as LucideMessageSquare,
+  Check as LucideCheck,
+  AlertCircle as LucideAlertCircle,
+  Loader2 as LucideLoader2,
+} from "lucide-vue-next";
 
 const { t } = useI18n();
 
