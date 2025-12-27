@@ -33,33 +33,16 @@ export default {
 
   // Home Page
   home: {
-    title: "Welcome",
-    subtitle: "Your application tagline here",
-    learnMore: "Learn More",
-    getInTouch: "Get in Touch",
-    getStarted: "Get Started",
-
-    features: {
-      title: "Features",
-      feature1: {
-        title: "Fast & Efficient",
-        description: "Built with modern technologies for optimal performance and reliability.",
-      },
-      feature2: {
-        title: "Fully Customizable",
-        description: "Tailor every aspect to match your needs and preferences perfectly.",
-      },
-      feature3: {
-        title: "Secure & Reliable",
-        description: "Your data is protected with industry-standard security measures.",
-      },
-    },
-
-    cta: {
-      title: "Ready to get started?",
-      description: "Join us today and discover what makes our platform special.",
-      button: "Get Started Now",
-    },
+    title: "Setup Complete!",
+    subtitle: "Your Vue 3 scaffolding is ready to use. Start building your application.",
+    nextSteps: "Next Steps",
+    step1: "Customize your application name and branding in the .env file",
+    step2: "Replace the logo in /public/logo/ with your own",
+    step3: "Configure your SEO settings in index.html and router/index.js",
+    step4: "Start building your features or modify existing pages",
+    setupGuide: "Setup Guide",
+    customization: "Customization Guide",
+    builtWith: "Built with",
   },
 
   // About Page

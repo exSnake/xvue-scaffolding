@@ -136,17 +136,17 @@ onBeforeUnmount(() => {
         <RouterLink
           :to="localePath('')"
           class="flex items-center gap-2 sm:gap-3 flex-shrink-0 hover:opacity-80 transition-opacity"
-          aria-label="Homepage xScrabbler"
+          aria-label="Homepage"
         >
           <img
             src="/logo/logo.svg"
-            alt="xScrabbler Logo"
+            alt="Logo"
             class="w-10 h-10 sm:w-12 sm:h-12"
           />
           <span
             class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white tracking-tight"
           >
-            xScrabbler
+            {{ $t('app.title') }}
           </span>
         </RouterLink>
 

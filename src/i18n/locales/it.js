@@ -33,33 +33,16 @@ export default {
 
   // Pagina Home
   home: {
-    title: "Benvenuto",
-    subtitle: "Il tuo slogan applicativo qui",
-    learnMore: "Scopri di più",
-    getInTouch: "Contattaci",
-    getStarted: "Inizia ora",
-
-    features: {
-      title: "Funzionalità",
-      feature1: {
-        title: "Veloce ed Efficiente",
-        description: "Costruito con tecnologie moderne per prestazioni e affidabilità ottimali.",
-      },
-      feature2: {
-        title: "Completamente Personalizzabile",
-        description: "Personalizza ogni aspetto per adattarlo perfettamente alle tue esigenze.",
-      },
-      feature3: {
-        title: "Sicuro e Affidabile",
-        description: "I tuoi dati sono protetti con misure di sicurezza standard del settore.",
-      },
-    },
-
-    cta: {
-      title: "Pronto per iniziare?",
-      description: "Unisciti a noi oggi e scopri cosa rende speciale la nostra piattaforma.",
-      button: "Inizia Ora",
-    },
+    title: "Configurazione Completata!",
+    subtitle: "Il tuo scaffolding Vue 3 è pronto per l'uso. Inizia a costruire la tua applicazione.",
+    nextSteps: "Prossimi Passi",
+    step1: "Personalizza il nome e il branding dell'applicazione nel file .env",
+    step2: "Sostituisci il logo in /public/logo/ con il tuo",
+    step3: "Configura le impostazioni SEO in index.html e router/index.js",
+    step4: "Inizia a costruire le tue funzionalità o modifica le pagine esistenti",
+    setupGuide: "Guida Setup",
+    customization: "Guida Personalizzazione",
+    builtWith: "Costruito con",
   },
 
   // Pagina Chi Siamo

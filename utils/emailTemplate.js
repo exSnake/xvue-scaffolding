@@ -26,7 +26,7 @@ export function compileTemplate(name, email, message) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuovo messaggio da xScrabbler</title>
+  <title>Nuovo messaggio dal sito web</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f3f4f6;">
   <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%; background-color: #f3f4f6;">
@@ -38,7 +38,7 @@ export function compileTemplate(name, email, message) {
           <tr>
             <td style="background: linear-gradient(135deg, #e11d48 0%, #db2777 100%); padding: 32px 40px; text-align: center;">
               <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">
-                xScrabbler
+                Nuovo Messaggio
               </h1>
               <p style="margin: 8px 0 0 0; color: rgba(255, 255, 255, 0.9); font-size: 14px;">
                 Nuovo messaggio dal sito web
@@ -81,7 +81,7 @@ export function compileTemplate(name, email, message) {
               <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%;">
                 <tr>
                   <td style="text-align: center;">
-                    <a href="mailto:${safeEmail}?subject=Re: Messaggio da xScrabbler" 
+                    <a href="mailto:${safeEmail}?subject=Re: Messaggio dal sito" 
                        style="display: inline-block; background: linear-gradient(135deg, #e11d48 0%, #db2777 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;">
                       Rispondi a ${safeName}
                     </a>
@@ -96,8 +96,7 @@ export function compileTemplate(name, email, message) {
           <tr>
             <td style="background-color: #f9fafb; padding: 24px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p style="margin: 0; color: #6b7280; font-size: 12px;">
-                Questo messaggio è stato inviato tramite il modulo di contatto di
-                <a href="https://xscrabbler.com" style="color: #e11d48; text-decoration: none;">xScrabbler</a>
+                Questo messaggio è stato inviato tramite il modulo di contatto del sito web
               </p>
             </td>
           </tr>

@@ -24,30 +24,16 @@ export default {
   },
 
   home: {
-    title: "Welcome", // TODO: Translate
-    learnMore: "Learn More", // TODO: Translate
-    getInTouch: "Get in Touch", // TODO: Translate
-    features: {
-      title: "Features", // TODO: Translate
-      feature1: {
-        title: "Fast & Efficient", // TODO: Translate
-        description:
-          "Built with modern technologies for optimal performance.", // TODO: Translate
-      },
-      feature2: {
-        title: "Fully Customizable", // TODO: Translate
-        description: "Tailor every aspect to match your needs.", // TODO: Translate
-      },
-      feature3: {
-        title: "Secure & Reliable", // TODO: Translate
-        description: "Your data is protected with industry-standard security.", // TODO: Translate
-      },
-    },
-    cta: {
-      title: "Ready to get started?", // TODO: Translate
-      description: "Join us today.", // TODO: Translate
-      button: "Get Started Now", // TODO: Translate
-    },
+    title: "Setup Complete!", // TODO: Translate
+    subtitle: "Your Vue 3 scaffolding is ready to use. Start building your application.", // TODO: Translate
+    nextSteps: "Next Steps", // TODO: Translate
+    step1: "Customize your application name and branding in the .env file", // TODO: Translate
+    step2: "Replace the logo in /public/logo/ with your own", // TODO: Translate
+    step3: "Configure your SEO settings in index.html and router/index.js", // TODO: Translate
+    step4: "Start building your features or modify existing pages", // TODO: Translate
+    setupGuide: "Setup Guide", // TODO: Translate
+    customization: "Customization Guide", // TODO: Translate
+    builtWith: "Built with", // TODO: Translate
   },
 
   about: {

@@ -9,6 +9,6 @@
     {"type": "perf", "section": "Miglioramenti di performance"},
     {"type": "test", "hidden": true}
   ],
-  "commitUrlFormat": "https://github.com/exsnake/xscrabble-scorer/commit/{{hash}}",
-  "compareUrlFormat": "https://github.com/exsnake/xscrabble-scorer/compare/{{previousTag}}...{{currentTag}}"
+  "commitUrlFormat": "{{REPO_URL}}/commit/{{hash}}",
+  "compareUrlFormat": "{{REPO_URL}}/compare/{{previousTag}}...{{currentTag}}"
 } 
