@@ -26,6 +26,7 @@ app.use(router);
 app.use(i18n);
 
 // Vercel Analytics
+// eslint-disable-next-line vue/multi-word-component-names
 app.component("Analytics", Analytics);
 
 app.mount("#app");
